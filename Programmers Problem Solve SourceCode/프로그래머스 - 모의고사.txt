@@ -1,0 +1,32 @@
+def solution(answers):
+
+	A = [1, 2, 3, 4, 5] * 2000
+	B = [2, 1, 2, 3, 2, 4, 2, 5] * 1250
+	C = [3, 3, 1, 1, 2, 2, 4, 4, 5, 5] * 1000
+
+	numA = 0
+	numB = 0
+	numC = 0
+
+	for i in range(len(answers)):
+		if answers[i] == A[i]:
+			numA += 1
+		else:
+			pass
+		if answers[i] == B[i]:
+			numB += 1
+		else:
+			pass
+		if answers[i] == C[i]:
+			numC += 1
+		else:
+			pass
+
+	numlist = [numA, numB, numC]
+	anwer = []
+
+	for i in range(len(numlist)):
+		if numlist[i] == max(numlist):
+			answer.append(i+1)
+
+	return answer
