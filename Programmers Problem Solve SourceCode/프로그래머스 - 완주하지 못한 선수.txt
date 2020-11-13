@@ -1,0 +1,5 @@
+def solution(participant, completion):
+	completion.append("z" * 20)
+	for participant_name, completion_name in zip(sorted(participant), sorted(completion)):
+		if participant_name != completion_name:
+			return participant_name
