@@ -1,0 +1,12 @@
+def solution(s, n):
+    answer = ''
+    for i in s:
+        if i.isupper():
+            i = chr((ord(i) + n - ord('A'))%26 + ord('A'))
+            answer += str(i)
+        elif i.islower():
+            i = chr((ord(i) + n - ord('a'))%26 + ord('a'))
+            answer += str(i)
+        elif ord(i) == 32:
+            answer += str(i)
+    return answer
