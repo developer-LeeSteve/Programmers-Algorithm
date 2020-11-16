@@ -1,0 +1,14 @@
+def solution(n):
+    num_list1 = []
+    while n >= 3:
+        n, num = divmod(n, 3)
+        num_list1.append(num)
+    num_list1.append(n)
+    num_list2 = num_list1[::-1]
+    multipl = 1
+    answer = 0
+    for i in num_list2:
+        i = i*multipl
+        multipl *= 3
+        answer +=   i
+    return answer
