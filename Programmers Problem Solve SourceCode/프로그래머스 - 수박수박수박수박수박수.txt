@@ -1,0 +1,4 @@
+def solution(n):
+	div, mod = divmod(n, 2)
+	answer = '수박'*div + '수'*mod
+	return answer
