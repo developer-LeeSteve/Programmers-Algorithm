@@ -1,11 +1,6 @@
 def solution(n):
-	list_n1 = [x+1 for x in range(n)]
-	list_n1.remove(1)
-	list_n2 = sorted(list_n1, reverse=True)
-	for i in list_n1:
-		for j in list_n2:
-			if i == j:
-				continue
-			elif j%i == 0:
-				list_n2[list_n2.index(j)] = 0
-	return len(list(set(list_n2)))-1
+	num = set(range(2, n+1))
+	for i in range(2, n+1):
+		if i in num:
+			num -= set(range(2*i, n+1, i))
+	return len(num)
