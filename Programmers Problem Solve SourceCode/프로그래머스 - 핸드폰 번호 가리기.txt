@@ -1,0 +1,2 @@
+def solution(phone_number):
+	return '*'*(len(phone_number)-4) + ''.join([str(x) for x in list(phone_number)[-4:]])
