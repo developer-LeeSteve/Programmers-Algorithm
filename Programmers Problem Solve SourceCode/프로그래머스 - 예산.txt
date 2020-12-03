@@ -1,0 +1,15 @@
+def solution(d, budget):
+	if min(d) > budget:
+		return 0
+	answer = 0
+	count = 0
+	for i in sorted(d):
+		if answer == budget:
+			return count
+			break
+		if answer > budget:
+			return count-1
+			break
+		answer += i
+		count += 1
+	return len(d)
