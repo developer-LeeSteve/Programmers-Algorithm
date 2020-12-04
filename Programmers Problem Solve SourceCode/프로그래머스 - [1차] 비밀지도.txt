@@ -1,0 +1,13 @@
+def solution(n, arr1, arr2):
+	answer = []
+	for i in range(len(arr1)):
+		line = ""
+		arr1_base = ['0']*(n-len(format(arr1[i], 'b'))) + list(format(arr1[i], 'b'))
+		arr2_base = ['0']*(n-len(format(arr2[i], 'b'))) + list(format(arr2[i], 'b'))
+		for j in range(n):
+			if arr1_base[j] == '1' or arr2_base[j] == '1':
+				line += "#"
+			else:
+				line += " "
+		answer.append(line)
+	return answer
