@@ -1,0 +1,31 @@
+def solution(dartResult):
+	dart_list = list(dartResult)
+	before_score = []
+	string = ''
+	for i in dart_list:
+		if i.isnumeric():
+			string += i
+		elif not i.isnumeric():
+			if string == '':
+				before_score.append(i)
+			else:
+				before_score.append(string)
+				string = ''
+				before_score.append(i)
+	score = []
+	for i in range(len(before_score)):
+		if before_score[i] == 'S':
+			score.append(int(before_score[i-1]))
+		elif before_score[i] == 'D':
+			score.append(int((before_score[i-1]))**2)
+		elif before_score[i] == 'T':
+			score.append(int((before_score[i-1]))**3)
+		elif before_score[i] == '#':
+			score[-1] *= -1
+		elif before_score[i] == '*':
+			if len(score)> 1:
+				score[-2] = (score[-2])*2
+				score[-1] = (score[-1])*2
+			else:
+				score[-1] = (score[-1])*2
+	return sum(score)
