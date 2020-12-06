@@ -1,0 +1,19 @@
+def solution(progresses, speeds):
+    days_needed = []
+    for progress, speed in zip(progresses, speeds):
+        day = (100-progress)/speed
+        if day == int(day):
+            days_needed.append(int(day))
+        else:
+            days_needed.append(int(day)+1)
+    print(days_needed)
+    answer = []
+    while True:
+        big_num = days_needed.index(max(days_needed))
+        if big_num == 0:
+            answer.append(len(days_needed))
+            break
+        answer.append(len(days_needed)-big_num)
+        days_needed = days_needed[:big_num]
+        print(answer)
+    return answer[::-1]
