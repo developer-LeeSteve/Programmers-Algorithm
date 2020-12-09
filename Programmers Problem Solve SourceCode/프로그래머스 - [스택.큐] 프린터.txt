@@ -1,0 +1,16 @@
+def solution(priorities, location):
+    count = 0
+    priority_list = []
+    for index, item in enumerate(priorities):
+        priority_list.append([item, index])
+    target = priority_list[location]
+    while True:
+        if priority_list[0][0]!= max(priority_list)[0]:
+            priority_list.append(priority_list.pop(0))
+        else:
+            if priority_list[0] == target:
+                count += 1
+                return count
+            else:
+                count += 1
+                del priority_list[0]
