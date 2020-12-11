@@ -1,0 +1,26 @@
+from itertools import permutations
+
+def is_prime(n):
+    if n == 1 or n == 0:
+        return False
+    else:
+        for i in range(2, int(n**0.5)+1):
+            if n%i == 0:
+                return False
+        else:
+            return True
+
+def solution(numbers):
+    count = 0
+    possible_num = []
+    for i in range(0, len(numbers)+1):
+        for j in permutations(list(numbers), i):
+            if ''.join(j) == '':
+                continue
+            else:
+                possible_num.append(int(''.join(j)))
+    possible_num = set(possible_num)
+    for k in possible_num:
+        if is_prime(k):
+            count += 1
+    return count
