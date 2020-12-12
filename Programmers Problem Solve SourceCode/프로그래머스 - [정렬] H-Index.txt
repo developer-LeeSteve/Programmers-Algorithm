@@ -1,0 +1,12 @@
+def solution(citations):
+    citations.sort()
+    LENGTH = len(citations)
+    MAX_NUM = 0
+    for i in range(max(citations)+1):
+        COUNT = 0
+        for j in range(LENGTH):
+            if i <= citations[j]:
+                COUNT += 1
+        if COUNT >= i:
+            MAX_NUM = i
+    return MAX_NUM
