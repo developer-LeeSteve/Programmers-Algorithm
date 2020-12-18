@@ -1,0 +1,12 @@
+def solution(arr):
+    num = max(arr)
+    n = 1
+    arr.sort()
+    while True:
+        for i in arr[:-1]:
+            if (num*n)%i != 0:
+                n += 1
+                break
+        else:
+            break
+    return num*n
