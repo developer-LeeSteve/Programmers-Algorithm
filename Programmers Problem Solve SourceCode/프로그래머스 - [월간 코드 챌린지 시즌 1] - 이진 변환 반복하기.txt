@@ -1,0 +1,11 @@
+def solution(s):
+    def turning(a, zero_count, r):
+        if a == '1':
+            return [r, zero_count]
+        else:
+            zero_count += a.count('0')
+            a = format(a.count('1'), 'b')
+            r += 1
+            return turning(a, zero_count, r)
+    answer = turning(s, 0, 0)
+    return answer
