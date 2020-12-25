@@ -1,0 +1,4 @@
+import re
+
+def solution(s):
+    return ' '.join([x.capitalize() for x in re.split("\S+", s)])
