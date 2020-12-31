@@ -1,0 +1,8 @@
+def solution(n):
+    count = 1
+    while True:
+        if format(n+count, 'b').count('1') == format(n, 'b').count('1'):
+            break
+        else:
+            count += 1
+    return n+count
