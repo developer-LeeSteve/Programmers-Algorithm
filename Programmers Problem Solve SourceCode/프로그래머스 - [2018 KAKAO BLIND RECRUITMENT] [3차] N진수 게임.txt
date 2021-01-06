@@ -1,0 +1,24 @@
+def convert_to_decimal(number, base):
+    strings = "0123456789ABCDEFGHIJ"
+    result = ""
+    if number == 0:
+        return "0"
+    while number > 0:
+        digit = number % base
+        result = strings[digit] + result
+        number = number // base
+    return result
+
+def solution(n, t, m, p):
+    order = []
+    cnt = p
+    answer = ""
+    for i in range(t):
+        order.append(cnt)
+        cnt += m
+    numbers = ""
+    for i in range(t*m):
+        numbers += convert_to_decimal(i, n)
+    for i in order:
+        answer += numbers[i-1]
+    return answer
