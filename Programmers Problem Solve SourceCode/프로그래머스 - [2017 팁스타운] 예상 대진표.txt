@@ -1,0 +1,29 @@
+def TF(tree, n, a):
+    if a in tree[:int(n/2)]:
+        return True
+    else:
+        return False
+            
+def solution(n,a,b):
+    tree = [x for x in range(1, n+1)]
+    if n == 2:
+        return 1
+    def check(n, a, b, tree):
+        answer = 0
+        temp = n
+        while temp > 1:
+            temp = int(temp/2)
+            answer += 1
+        if n == 2:
+            return answer
+        a_TF = TF(tree, n, a)
+        b_TF = TF(tree, n, b)
+        if a_TF != b_TF:
+            return answer
+        else:
+            if a_TF == False:
+                tree = tree[int(n/2):]
+            elif a_TF == True:
+                tree = tree[:int(n/2)]
+            return check(int(n/2), a, b, tree)
+    return check(n, a, b, tree)
