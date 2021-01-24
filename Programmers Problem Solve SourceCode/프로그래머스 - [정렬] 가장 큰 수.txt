@@ -1,0 +1,7 @@
+def solution(numbers)
+    answer = 
+    numbers = sorted([str(x) for x in numbers], key=lambda x x3, reverse=True)
+    numbers = list(map(int, numbers))
+    for i in numbers
+        answer += str(i)
+    return str(int(answer))
