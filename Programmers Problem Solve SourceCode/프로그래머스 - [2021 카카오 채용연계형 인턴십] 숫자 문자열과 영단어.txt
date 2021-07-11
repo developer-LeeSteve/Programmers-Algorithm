@@ -1,0 +1,14 @@
+def solution(s):
+    answer = ''
+    word = ''
+    alphabet = ['zero', 'one', 'two', 'three', 'four', 'five', 'six', 'seven', 'eight', 'nine']
+    
+    for i in s:
+        if i.isdigit():
+            answer += str(i)
+        else:
+            word += str(i)
+            if word in alphabet:
+                answer += str(alphabet.index(word))
+                word = ''
+    return int(answer)
