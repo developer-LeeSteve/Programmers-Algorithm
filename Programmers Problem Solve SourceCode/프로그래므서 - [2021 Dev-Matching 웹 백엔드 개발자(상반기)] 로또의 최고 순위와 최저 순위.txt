@@ -1,0 +1,20 @@
+def solution(lottos, win_nums):
+    right_count = 0
+    zero_count = 0
+    for i in lottos:
+        if i in win_nums:
+            right_count += 1
+        if i == 0:
+            zero_count += 1
+    if right_count == 6:
+        answer = [1,1]
+    elif right_count <= 1:
+        if right_count + zero_count >= 2:
+            answer = [7-zero_count-right_count, 6]
+        elif right_count == 0:
+            answer = [6,6]
+        else:
+            answer = [7-zero_count, 6]
+    else:
+        answer = [7-zero_count-right_count,7-right_count]
+    return answer
