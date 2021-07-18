@@ -1,0 +1,8 @@
+def solution(nums):
+    count = int(len(nums)/2)
+    new_nums = list(set(nums))
+    if count > len(new_nums):
+        answer = len(new_nums)
+    else:
+        answer = count
+    return answer
